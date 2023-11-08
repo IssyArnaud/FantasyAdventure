@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class FightingRoom {
     private ArrayList<Enemy> enemies;
-    public FightingRoom(ArrayList<Enemy> enemies){
-        this.enemies = enemies;
+    public FightingRoom(){
+        this.enemies = new ArrayList<Enemy>();
     }
 
     public ArrayList<Enemy> getEnemies(){
@@ -20,4 +20,5 @@ public class FightingRoom {
     public void addEnemyToRoom(Enemy enemy){
         enemies.add(enemy);
     }
+
 }

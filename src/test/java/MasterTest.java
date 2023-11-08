@@ -31,30 +31,6 @@ public class MasterTest{
     FightingRoom fightingRoom1;
     ArrayList<Enemy> fightRoomEnemies;
 
-    //============TREASURES=============
-    //============TREASURES=============
-
-
-//    public class MasterTest(Treasure goblet, Treasure crown, Enemy goblin, Knight knight, TreasureRoom treasureRoom1, FightingRoom fightingRoom1) {
-//        this.goblet = goblet;
-//        this.crown = crown;
-//
-//        ArrayList<Treasure> goblinTreasures = new ArrayList<>();
-//        goblinTreasures.add(crown);
-//        this.goblin = goblin;
-//
-//        this.knight = knight;
-//        ArrayList<Treasure> knightTreasures = new ArrayList<>();
-//
-//        this.treasureRoom1 = treasureRoom1;
-//        ArrayList<Treasure> treasureRoomTreasures = new ArrayList<>();
-//        treasureRoomTreasures.add(goblet);
-
-
-//        this.fightingRoom1 = fightingRoom1;
-//        ArrayList<Enemy> fightRoomEnemies = new ArrayList<>();
-//
-//    }
 
     @Before
     public void before(){
@@ -64,7 +40,8 @@ public class MasterTest{
         knight = new Knight(15, ToolType.WOODENSWORD);
         treasureRoom1 = new TreasureRoom();
         treasureRoom1.addTreasureToRoom(goblet);
-        fightingRoom1 = new FightingRoom(fightRoomEnemies);
+        fightingRoom1 = new FightingRoom();
+        fightingRoom1.addEnemyToRoom(goblin);
     }
 
     @Test
@@ -78,6 +55,18 @@ public class MasterTest{
 
         assertEquals(0, treasureRoom1.getTreasures().size());
         assertEquals(1, knight.getTreasures().size());
+//==================================================================
+
+        knight.enterFightingRoom(fightingRoom1);
+        knight.physicalFight(fightingRoom1);
+        assertEquals(5, goblin.getHealthPoints());
+        assertEquals(14, knight.getHealthPoints());
+
+        knight.physicalFight(fightingRoom1);
+        assertEquals(0, goblin.getHealthPoints());
+        assertEquals(13, knight.getHealthPoints());
+
+
     }
 
 

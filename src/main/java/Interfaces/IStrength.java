@@ -1,2 +1,5 @@
-package Interfaces;public interface IStrength {
+package Interfaces;
+
+public interface IStrength {
+    public void physicalFight();
 }

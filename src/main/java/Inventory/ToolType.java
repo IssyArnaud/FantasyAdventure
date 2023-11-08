@@ -3,7 +3,7 @@ package Inventory;
 
 
 public enum ToolType {
-    WOODENSWORD(10, 0),
+    WOODENSWORD(5, 0),
     FIST(1, 0),
     SPIKEMACE(8 ,0),
     HEALINGSCROLL(0 ,10),

@@ -2,6 +2,7 @@ package Entity;
 
 import java.util.ArrayList;
 import Inventory.Treasure;
+import Room.FightingRoom;
 import Room.TreasureRoom;
 
 import static java.lang.System.in;
@@ -14,7 +15,6 @@ public abstract class Entity {
     public Entity(int healthPoints) {
         this.healthPoints = healthPoints;
         this.treasures = new ArrayList<Treasure>();
-
     }
 
     public int getHealthPoints() {
@@ -33,12 +33,17 @@ public abstract class Entity {
         this.treasures = treasures;
     }
 
-    public void enterTreasureRoom(TreasureRoom treasureRoom){
+    public void enterTreasureRoom(TreasureRoom treasureRoom) {
         System.out.println("You have entered a treasure room, containing: ");
-        for(Treasure item : treasureRoom.getTreasures()){
+        for (Treasure item : treasureRoom.getTreasures()) {
             System.out.println(item.getLoot());
         }
     }
+
+    public void enterFightingRoom(FightingRoom fightingRoom){
+        System.out.println("You have entered a fighting room, containing: " + fightingRoom.getEnemies().size());
+    }
+
 
     public void pickUpTreasure(TreasureRoom treasureRoom) {
         for (Treasure item : treasureRoom.getTreasures()) {
